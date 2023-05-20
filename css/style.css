@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-row: min-content auto;
+    column-gap: 2rem;
+    row-gap: .5rem;
+}
+
+header {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 5rem;
+    padding-block: 1.5rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: min-content repeat(2, 1fr);
+    margin-inline: 5rem;
+    gap: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.visually-hidden {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+#message-list {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    background-color: rgb(239, 239, 239);
+    border: .5rem solid;
+    border-top-color: deepskyblue;
+    border-bottom-color: deeppink;
+    border-inline: 0px solid white;
+    border-radius: 1rem;
+}
+
+.message > :where(p, h3) {
+    padding-inline: .5rem;
+}
+
+.message > p {
+    padding-bottom: .5rem;
+}
+
+.message > img {
+    max-width: 100%;
+    border-radius: 0 0 .5rem .5rem;
+}
+
+dialog[open] {
+    padding: 1rem;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    top: 25%;
+    margin-inline: auto;
+}
+
+dialog form {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    column-gap: 0.5rem;
+    row-gap: 0.75rem;
+}
+
+dialog .form-btns {
+    width: min-content;
+    place-self: center;
+    grid-column: span 2;
+    display: flex;
+    gap: .5rem
+}
+
+dialog .form-btns :is(button, input[type="submit"]) {
+    padding-inline: 0.25rem;
+    cursor: pointer;
+}
+
+a,
+.look-like-link {
+    background-color: unset;
+    border: unset;
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#auth-btns {
+    --btn-border-radius: 2rem;
+    display: flex;
+
+}
+
+#auth-btns :is(button, a) {
+    padding: .25rem;
+    cursor: pointer;
+    border: .15rem solid black;
+    text-decoration: none;
+    color: black;
+}
+
+#auth-btns :first-child {
+    border-radius: var(--btn-border-radius) 0 0 var(--btn-border-radius);
+    border-right: .1rem solid black;
+    padding-left: .5rem;
+    background-color: deepskyblue;
+}
+
+#auth-btns :last-child {
+    border-radius: 0 var(--btn-border-radius) var(--btn-border-radius) 0;
+    border-left: .1rem solid black;
+    padding-right: .5rem;
+    background-color: deeppink;
+    color: white;
+}
+
+.error-message {
+    color: red;
+}
+
+.hide-me{
+    display: none;
+}
+
+.edit-lable {
+    color: deeppink;
+}
+
+*[hidden] {
+    display: none; !important;
+}

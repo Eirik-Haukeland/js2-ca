@@ -1,0 +1,19 @@
+{
+  "name": "js2-ca",
+  "version": "0.0.1",
+  "description": "front-end to sosial media project",
+  "main": "hello.js",
+  "scripts": {
+    "test": "jest",
+    "build": "sass style/scss:dist/css",
+    "watch": "sass --watch style/scss:dist/css & live-server"
+  },
+  "author": "Eirik Berget Haukeland",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.38.0",
+    "jest": "^29.5.0",
+    "live-server": "^1.1.0",
+    "sass": "^1.62.0"
+  }
+}
