@@ -47,51 +47,36 @@
     <main>
         <aside aria-labelledby="filter-heading">
             <h2 id="filter-heading" class="visually-hidden">filter posts</h2>
-            <form action="GET">
-                <label for="search-feeld"></label>
-                <input type="text" name="search-feeld" id="search-feeld">
-                <fieldset>
-                    <label for="iAmASubject">iAmASubject</label>
-                    <input type="checkbox" name="iAmASubject" id="iAmASubject">
-                    <label for="theFishingExp">theFishingExp</label>
-                    <input type="checkbox" name="theFishingExp" id="theFishingExp">
-                    <label for="greatGamesOnly">greatGamesOnly</label>
-                    <input type="checkbox" name="greatGamesOnly" id="greatGamesOnly">
-                    <label for="oSoNice">oSoNice</label>
-                    <input type="checkbox" name="oSoNice" id="oSoNice">
-                    <label for="amIDone">amIDone</label>
-                    <input type="checkbox" name="amIDone" id="amIDone">
-                </fieldset>
-            </form>
-        </aside>
-        <section id="messages" aria-labelledby="messages-heading">
-            <h2 id="messages-heading" class="visually-hidden">feed</h2>
             <form id="send-post">
                 <label for="post-title">Title</label>
                 <input type="text" name="post title" id="post-title" required>
-                <label for="tags">tags</label>
+                <label for="tags">Tags</label>
                 <input type="text" name="tags" id="tags">
                 <fieldset>
                     <legend>message type</legend>
                     <input type="radio" name="messageOrImage" id="send-image">
-                    <label for="send-image">image</label>
+                    <label for="send-image">Image</label>
                     <input type="radio" name="messageOrImage" id="send-message" checked>
-                    <label for="send-message">textual</label>
+                    <label for="send-message">Textual</label>
                 </fieldset>
                 <div id="send-image-form">
-                    <label for="media-url">url to img</label>
+                    <label for="media-url">Url to img</label>
                     <input type="text" name="media url" id="media-url">
-                    <label for="alt-text">textual alternative</label>
+                    <label for="alt-text">Textual alternative</label>
                     <input type="text" name="alt text" id="alt-text">
                 </div>
                 <div id="send-message-form">
-                    <label for="message-text">message</label>
+                    <label for="message-text">Message</label>
                     <div type="text" name="message text" id="message-text" contenteditable="true"></div>
                 </div>
                 <input type="submit" value="post message">
             </form>
+        </aside>
+        <section id="messages" aria-labelledby="messages-heading">
+            <h2 id="messages-heading" class="visually-hidden">feed</h2>
             <ul id="message-list"></ul>
         </section>
+        <section id="general-aria"></section>
     </main>
 </body>
 </html>

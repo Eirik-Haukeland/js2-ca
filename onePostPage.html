@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>social center</title>
+    <meta name="description" content="brows our content"><!--todo: update content -->
+    <script src="js/onePost.js" defer type="module"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <img src="" alt="social center logo">
+    <nav id="auth-btns">
+        <a href="/">Home</a>
+        <button class="auth-open-join">Join</button>
+        <button class="auth-open-login" >Login</button>
+    </nav>
+</header>
+<dialog id="auth-dialog-join">
+    <button class="auth-open-login look-like-link" >if you have and account you can login here</button>
+    <form id="join-form" name="register an account" method="dialog">
+        <label for="username-join">Username</label>
+        <input type="text" name="username" id="username-join" required pattern="^[a-zA-Z0-9_]{1,20}$" maxlength="20">
+        <label for="email-join">Email</label>
+        <input type="email" name="email" id="email-join" required pattern="^([a-z0-9_\.\+-]+)@stud.noroff.no|^([a-z0-9_\.\+-]+)@noroff.no$">
+        <label for="password-join">Password</label>
+        <input type="password" name="password" id="password-join" minlength="8">
+        <div class="form-btns">
+            <button id="join-close-btn" type="button">cansel</button>
+            <input type="submit" value="join!">
+        </div>
+    </form>
+</dialog>
+<dialog id="auth-dialog-login">
+    <button class="auth-open-join look-like-link"> if you don't have an account you can register here</button>
+    <form id="login-form" name="login to account">
+        <label for="email-login">Email</label>
+        <input type="email" name="email" id="email-login" required pattern="^([a-z0-9_\.\+-]+)@stud.noroff.no|^([a-z0-9_\.\+-]+)@noroff.no$">
+        <label for="password-login">Password</label>
+        <input type="password" name="password" id="password-login" minlength="8">
+        <div class="form-btns">
+            <button id="login-close-btn" type="button">cansel</button>
+            <input type="submit" value="login!">
+        </div>
+    </form>
+</dialog>
+<main>
+    <h2 id="messages-heading" class="visually-hidden">feed</h2>
+    <section id="messages" aria-labelledby="messages-heading">
+        <ul id="message-list"></ul>
+    </section>
+    <section id="general-aria"></section>
+</main>
+</body>
+</html>
