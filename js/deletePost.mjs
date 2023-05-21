@@ -1,17 +1,21 @@
 export default async (id) => {
-  const authorization = localStorage.getItem('accessToken')
+  const authorization = `Bearer ${localStorage.getItem('accessToken')}`
   try {
-    const response = await fetch(`${url}/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: authorization,
+    const respons = await fetch(`https://api.noroff.dev/api/v1/social/posts/${id}`, {
+      'method': 'DELETE',
+      'headers': {
+        'content-type': 'application/json; charset:UTF-8',
+        'Authorization': authorization,
       },
     })
-    if (response.ok) {
-      const message = document.querySelector(`li[data-id="${id}"]`)
-      message.remove()
+    const json = await respons.json()
+    if (respons.ok) {
+      const deletedPost = document.querySelector(`.message[data-id="${id}"]`)
+      deletedPost.innerHTML = ''
+      deletedPost.innerText = `post Deleted`
+      deletedPost.className = 'deleted-message'
     } else {
-      throw new Error(JSON.stringify(response))
+      console.log(json)
     }
   } catch (err) {
     console.error(await err.json())
