@@ -45,9 +45,10 @@ ul {
 .message {
     display: grid;
     grid-template: 'info title' min-content
-                   'info message' 1fr / clamp(8rem, 1rem, 10rem) 1fr;
+                   'info message' 1fr
+                   'div div' min-content / clamp(8rem, 1rem, 10rem) 1fr;
     gap: 1rem;
-    padding: 1rem;
+    padding-top: 1rem;
     background-color: rgb(239, 239, 239);
     border: .5rem solid;
     border-top-color: deepskyblue;
@@ -58,14 +59,86 @@ ul {
 
 .message > h3 {
     grid-area: title;
+    margin-right: 1rem;
 }
 
 .message > .content {
     grid-area: message;
     width: 100%;
+    margin-right: 1rem;
+}
+
+.message > .comment-section {
+    background-color: deeppink;
+    grid-area: div;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 .5rem .5rem;
+}
+
+.comment-section > form {
+    display: flex;
+    margin-top: .5rem;
+    justify-content: center;
+}
+
+.comment-section > form > input {
+    padding: .25rem;
+}
+
+.comment-section > form > input:first-of-type {
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.comment-section > form > input:last-of-type {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.comment-list > .message-comment {
+    display: grid;
+    padding: 1rem;
+    margin-top: .25rem;
+    margin-inline: 1rem;
+    column-gap: 1rem;
+    row-gap: .75rem;
+    background-color: rgb(239, 239, 239);
+    border: .25rem solid deepskyblue;
+    border-radius: 1rem;
+    grid-template: 'img name' .75em
+                   'img message' min-content / min-content 1fr;
+}
+
+.message > .comment-list > .message-comment:first-child {
+    margin-top: .25rem;
+}
+
+.message > .comment-list > .message-comment:last-child {
+    margin-bottom: .25rem;
+}
+
+.message-comment img {
+    grid-area: img;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border: .1rem solid deeppink;
+    border-bottom-color: deepskyblue;
+    border-right-color: deepskyblue;
+    border-radius: 50%;
+}
+
+.message-comment span {
+    grid-area: name;
+    font-size: .75em;
+}
+
+.message-comment p {
+    grid-area: message;
+    place-self: start;
 }
 
 .message > .message-info {
+    margin-left: 1rem;
     grid-area: info;
     display: grid;
     gap: .5rem;
@@ -73,6 +146,7 @@ ul {
                    'name name name name' min-content
                    '. react-btn react-count .' min-content
                    '. id-btn id-btn .' min-content
+                   '. edit-btn edit-btn .' min-content
                    '. remove-btn remove-btn .' min-content / 1fr 1fr 1fr 1fr
 }
 
@@ -106,6 +180,10 @@ ul {
 
 .message-info > .se-post {
     grid-area: id-btn;
+}
+
+.message-info > .edit-message {
+    grid-area: edit-btn;
 }
 
 .message-info > .remove-message {
@@ -194,4 +272,10 @@ a,
 
 *[hidden] {
     display: none; !important;
+}
+
+.deleted-message {
+    border: .5rem solid red;
+    color: red;
+
 }

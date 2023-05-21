@@ -11,6 +11,6 @@ const json = await respons.json()
 
 if (respons.ok) {
   placeMessages(json, messageList)
-} else {
+  } else {
   console.log(json)
 }
