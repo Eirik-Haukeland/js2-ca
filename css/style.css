@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -42,28 +43,73 @@ ul {
 }
 
 .message {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
+    display: grid;
+    grid-template: 'info title' min-content
+                   'info message' 1fr / clamp(8rem, 1rem, 10rem) 1fr;
+    gap: 1rem;
+    padding: 1rem;
     background-color: rgb(239, 239, 239);
     border: .5rem solid;
     border-top-color: deepskyblue;
     border-bottom-color: deeppink;
-    border-inline: 0px solid white;
+    border-inline: unset;
     border-radius: 1rem;
 }
 
-.message > :where(p, h3) {
-    padding-inline: .5rem;
+.message > h3 {
+    grid-area: title;
 }
 
-.message > p {
-    padding-bottom: .5rem;
+.message > .content {
+    grid-area: message;
+    width: 100%;
 }
 
-.message > img {
-    max-width: 100%;
-    border-radius: 0 0 .5rem .5rem;
+.message > .message-info {
+    grid-area: info;
+    display: grid;
+    gap: .5rem;
+    grid-template: 'img img img img' clamp(8rem, 1rem, 10rem)
+                   'name name name name' min-content
+                   '. react-btn react-count .' min-content
+                   '. id-btn id-btn .' min-content
+                   '. remove-btn remove-btn .' min-content / 1fr 1fr 1fr 1fr
+}
+
+.message-info > .author-img {
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: .25rem solid deeppink;
+    border-bottom-color: deepskyblue;
+    border-right-color: deepskyblue;
+    border-radius: 50%;
+}
+
+.message-info > .author-name {
+    grid-area: name;
+    justify-self: center;
+}
+
+.message-info > .thumbs-up {
+    grid-area: react-btn;
+    background-color: unset;
+    border: unset;
+    justify-self: right;
+}
+
+.message-info > .reaction-count {
+    grid-area: react-count;
+    justify-self: left;
+}
+
+.message-info > .se-post {
+    grid-area: id-btn;
+}
+
+.message-info > .remove-message {
+    grid-area: remove-btn;
 }
 
 dialog[open] {
